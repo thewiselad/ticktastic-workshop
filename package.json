@@ -4,6 +4,8 @@
   "description": "A siple app to workshop some basic web-dev principles.",
   "license": "MIT",
   "dependencies": {
-    "jquery": "^3.1.1"
+    "express": "^4.14.1",
+    "jquery": "^3.1.1",
+    "minimist": "^1.2.0"
   }
 }
