@@ -2,9 +2,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Quiztastic</title>
+    <title>TickTastic</title>
+
 </head>
 <body>
-    <h1>Hello World!</h1>
+
+    <div class="container">
+
+        <header class="page-header">
+            <h1>TickTastic</h1>
+        </header>
+
+        <div class="row">
+
+            <section class="col-md-8">
+                <h2>Submit a new ticket.</h2>
+                <p><small>Or don't. I'm not your supervisor.</small></p>
+                <form action="#" method="post" name="quiz-form" id="quiz-form" class="main-form">
+
+                    <div class="form-group">
+                        <label for="name">Your name</label>
+                        <input type="text" id="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <select id="department" required>
+                            <option value="">Please select.</option>
+                            <option value="faculty">Faculty</option>
+                            <option value="administration">Administration</option>
+                            <option value="accounts">Accounts</option>
+                            <option value="it">IT</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Your email</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telephone">Your telelphone number (or extension)</label>
+                        <input type="telephone" id="telephone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department">Ticket Status</label>
+                        <select id="department" required>
+                            <option value="">Please choose as appropriate.</option>
+                            <option value="annoyance">Important</option>
+                            <option value="trivial">Priority</option>
+                            <option value="dont-worry">Critical</option>
+                            <option value="overblown">Immediate fix required</option>
+                            <option value="potential-issue">I think I will actually die as a direct result of this problem.</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="details">Details of your issue.</label>
+                        <label for="details">Please be as descriptive as you can, and include as much detail as possible.</label>
+                        <textarea name="details" id="details" cols="30" rows="10"></textarea>
+                    </div>
+
+                </form>
+
+            </section>
+
+            <section class="col-md-4">
+
+                <h2>Existing tickets</h2>
+
+                <ul class='ticket-list'>
+                    <li class="ticket-list__item"><strong>Barry Rhodes</strong> - HELP!! <time datetime="2017-01-24 11:00"></time></li>
+                    <li class="ticket-list__item"><strong>Susan Belvedere</strong> - Network issues. <time datetime="2017-01-24 12:30"></time></li>
+                    <li class="ticket-list__item"><strong>Barry Rhodes</strong> - Don't worry. <time datetime="2017-01-24 12:30"></time></li>
+                    <li class="ticket-list__item"><strong>Elaine McWhittle</strong> - The bloody printer again. WHAT DOES 'NO PAPER' EVEN MEAN!? FIX IT NOW! <time datetime="2017-01-24 12:30"></time></li>
+                    <li class="ticket-list__item"><strong>Barry Rhodes</strong> - IT'S ALL GONE ON FIRE!1!!!1! <time datetime="2017-01-24 16:00"></time></li>
+                </ul>
+
+            </section>
+
+        </div>
+
+
+
+    </div>
+
 </body>
 </html>
