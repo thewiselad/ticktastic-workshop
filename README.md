@@ -80,6 +80,26 @@ We now look at prettifying up the HTML structure using the wizadry of CSS.
     * The DOM tree - and why I've avoided it until now. (Arms-race specificity. Code drift on large projects)
 
 
+## Commit 5 - Making this dynamic with Javascript
+
+  * Goal: capture form requests, store locally.
+  * Where to look for help
+    * Stack overflow
+    * MDN
+    * Me.
+  * Welcome back to npm - let's use jquery (The ONE concession to the MS syllabus!)
+  * discuss the bits copied from HTML5 BP - inc SRI on jquery CDN. (Why CDN at all?) (https://www.srihash.org/)
+  * (alert something and link in JS)
+  * Why not async?
+  * Scoping and global variables.
+  * jQuery vs DOMMethods - CSS selectors / bind events.
+  * anon functions vs named functions. (debugging / readability)
+  * HTML5 validation and browser fallbacks (we're not doing them).
+  * Variable hoisting
+  * FormData and why we're not using it.
+  * Subtle differences, jquery / ES6 (each / forEach key, value transposition)
+
+
 ## Footnotes
 
 <sup name="f1" id="f1">1</sup> Not technically required by the html spec, as the others are, but very important in the same way.

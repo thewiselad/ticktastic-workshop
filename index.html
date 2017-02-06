@@ -29,12 +29,12 @@
 
                     <div class="form-group">
                         <label class="control-label" for="name">Your name</label>
-                        <input class="form-control" type="text" id="name" required>
+                        <input class="form-control" type="text" id="name" name="name" required>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="department">Department</label>
-                        <select class="form-control" id="department" required>
+                        <select class="form-control" id="department" name="department" required>
                             <option value="">Please select.</option>
                             <option value="faculty">Faculty</option>
                             <option value="administration">Administration</option>
@@ -45,17 +45,17 @@
 
                     <div class="form-group">
                         <label class="control-label" for="email">Your email</label>
-                        <input class="form-control" type="email" id="email" required>
+                        <input class="form-control" type="email" id="email" name="email" required>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="telephone">Your telelphone number (or extension)</label>
-                        <input class="form-control" type="telephone" id="telephone">
+                        <input class="form-control" type="telephone" id="telephone" name="telephone">
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="department">Ticket Status</label>
-                        <select class="form-control" id="department" required>
+                        <select class="form-control" id="department" name="department" required>
                             <option value="">Please choose as appropriate.</option>
                             <option value="annoyance">Important</option>
                             <option value="trivial">Priority</option>
@@ -94,9 +94,11 @@
 
         </div>
 
-
-
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.min.js"><\/script>')</script>
+    <script src="main.js"></script>
 
 </body>
 </html>
