@@ -91,13 +91,37 @@ We now look at prettifying up the HTML structure using the wizadry of CSS.
   * discuss the bits copied from HTML5 BP - inc SRI on jquery CDN. (Why CDN at all?) (https://www.srihash.org/)
   * (alert something and link in JS)
   * Why not async?
-  * Scoping and global variables.
   * jQuery vs DOMMethods - CSS selectors / bind events.
+  * Basics of events
   * anon functions vs named functions. (debugging / readability)
-  * HTML5 validation and browser fallbacks (we're not doing them).
+  * HTML5 validation and browser fallbacks (we're not doing them here).
   * Variable hoisting
   * FormData and why we're not using it.
   * Subtle differences, jquery / ES6 (each / forEach key, value transposition)
+
+## Commit 6 - Further adventures of javascript - writing to the DOM
+
+In which we return information back to the DOM and briefly discuss the prinicples of scoping and separation of concerns. This is not terribly important now, but will become so in our next sessions, when testing becomes a topic.
+
+  * Break up into modules - discuss the basics of scoping and global vs local variables.
+  * Convert ticket to tickets
+  * Pull tickets from localstorage and display them.
+  * Discuss edge cases (no tickets?)
+  * Using jquery to write to the DOM - discuss proper escaping and XSS.
+    * First - demonstrate the vulnerable version:
+    <pre>
+      listItems = existingTickets.map(function(ticketDetails) {
+          var str = itemTemplate;
+          str = str.replace('{{ name }}', ticketDetails.name);
+          str = str.replace('{{ summary }}', ticketDetails.details);
+          str = str.replace('{{ date }}', ticketDetails.date);
+
+          return str;
+      });
+      $list.html($(listItems.join('')));
+    </pre>
+    * Then the fixed version: `str = str.replace('{{ name }}', $('<p></p>').text(ticketDetails.name).html());`
+    * Then just use a template library. (Also discuss whitespace etc.)
 
 
 ## Footnotes

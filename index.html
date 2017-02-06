@@ -82,12 +82,8 @@
 
                 <h2 class="existing-tickets__title">Existing tickets</h2>
 
-                <ul class='ticket-list'>
-                    <li class="ticket-list__item"><h4 class="ticket-list__title">HELP!!</h4> <span class="ticket-list__user">Barry Rhodes</span> <time datetime="2017-01-24 11:00"></time></li>
-                    <li class="ticket-list__item"><h4 class="ticket-list__title">Network issues.</h4> <span class="ticket-list__user">Susan Belvedere</span> <time datetime="2017-01-24 12:30"></time></li>
-                    <li class="ticket-list__item"><h4 class="ticket-list__title">Don't worry.</h4> <span class="ticket-list__user">Barry Rhodes</span> <time datetime="2017-01-24 12:30"></time></li>
-                    <li class="ticket-list__item"><h4 class="ticket-list__title">The bloody printer again. WHAT DOES 'NO PAPER' EVEN MEAN!? FIX IT NOW!</h4> <span class="ticket-list__user">Elaine McWhittle</span> <time datetime="2017-01-24 12:30"></time></li>
-                    <li class="ticket-list__item"><h4 class="ticket-list__title">IT'S ALL GONE ON FIRE!1!!!1!</h4> <span class="ticket-list__user">Barry Rhodes</span> <time datetime="2017-01-24 16:00"></time></li>
+                <ul class='ticket-list' id="ticket-list">
+                    <li class="ticket-list__loading">Loading</li>
                 </ul>
 
             </section>
@@ -98,6 +94,7 @@
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.min.js"><\/script>')</script>
+    <script src="node_modules/mustache/mustache.min.js"></script>
     <script src="main.js"></script>
 
 </body>
