@@ -51,6 +51,35 @@ We look at how to plan your markup tags and structure and what to consider as yo
    * What is a placeholder and why everyone is an idiot.
 
 
+## Commit 4 - Styling the markup with CSS
+
+We now look at prettifying up the HTML structure using the wizadry of CSS.
+
+ * Planning your styling
+   * Consider color blindness / partial sight
+   * Consider "Trust in design" and the Aesthetic-Usability Effect. Design = important.
+   * Counter to this, consider performance. Fast = important.
+   * Balance these. I dare you.
+   * Other common affordances - abbreviation / explicitness. Consider audience.
+ * Making it happen - implementing a design
+   * CSS formatting, source control and Cmd/Ctrl-F.
+   * Browsers - Ugh. Use a reset. (Eric Meyer / HTML5 BP) Even better - use HTML5 BP or similar.
+   * Why id's are the devil and element-based styles are worse. (Unless they're not.)
+   * Grids - they're pretty good. (But we won't use one)
+    * padding wrappers vs box-sizing: border-box
+    * The necessary evil of negative margins.
+   * BEM / OOCSS
+   * Page title - em sizing vs px
+   * Form styling
+     * box model
+     * Block vs inline
+   * Form title
+     * Absolute / relative position
+     * nudging stuff about in the inspector. It's not cheating, but it feels like it is.
+   * List stylez
+    * The DOM tree - and why I've avoided it until now. (Arms-race specificity. Code drift on large projects)
+
+
 ## Footnotes
 
 <sup name="f1" id="f1">1</sup> Not technically required by the html spec, as the others are, but very important in the same way.
