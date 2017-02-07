@@ -43,7 +43,7 @@ tt.form = function($form, list) {
 };
 
 tt.list = function($, Mustache, popup, $list) {
-    var itemTemplate = '<li class="ticket-list__item"><h4 class="ticket-list__title" data-index="{{ index }}">{{ summary }}</h4> <span class="ticket-list__user">{{ name }}</span> <time datetime="{{ date }}"></time></li>';
+    var itemTemplate = '<li class="ticket-list__item"><a href="#" class="ticket-list__delete">Delete</a><h4 class="ticket-list__title" data-index="{{ index }}">{{ summary }}</h4> <span class="ticket-list__user">{{ name }}</span> <time datetime="{{ date }}"></time></li>';
 
     function findTicket(index) {
         var tickets = getTickets();
@@ -82,8 +82,21 @@ tt.list = function($, Mustache, popup, $list) {
         popup.show(ticket);
     }
 
+    function deleteClicked(e) {
+        var tickets, index;
+        e.preventDefault();
+        if (window.confirm("Really delete ticket?")) {
+            tickets = getTickets();
+            index = $(this).data('index');
+            tickets.splice(index, 1);
+            window.localStorage.setItem('tickets', JSON.stringify(tickets));
+            refresh();
+        }
+    }
+
     function addHandlers() {
         $list.find('.ticket-list__title').click(itemCicked);
+        $list.find('.ticket-list__delete').click(deleteClicked);
     }
 
     function drawTickets(tickets) {

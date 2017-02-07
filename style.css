@@ -112,9 +112,16 @@ html {
     margin: 0;
     text-decoration: underline;
     cursor: pointer;
+    float: left;
 }
 .ticket-list__user {
     font-style: italic;
+    clear: both;
+    display: block;
+}
+.ticket-list__delete {
+    color: red;
+    float: right;
 }
 
 .ticket-details {

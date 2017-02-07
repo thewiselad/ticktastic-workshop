@@ -145,7 +145,7 @@ Currently our app shovels all the data in the sidebar, what happens when a ticke
     * rebuild the popover to display the correct ticket correctly
 
 
-## Commit 9 - responsive design
+## Commit 9 - Responsive design
 
 Need to make a few tweaks to make this design work responsively.
 
@@ -153,6 +153,13 @@ Need to make a few tweaks to make this design work responsively.
   * Adjust the popover.
   * Discuss "out-there" designs, (fixed heights etc) in terms of document flow and why our design was so easy to make respnosive.
 
+
+## Commit 10 - Delete a ticket
+
+As tickets are completed, they should be removed.
+
+  * Add some controls
+  * Make those controls work
 
 ## Footnotes
 
