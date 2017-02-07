@@ -8,7 +8,7 @@
         ticketStore = tt.ticketStore(),
         popup = tt.popup(Mustache, $ticket),
         list = tt.list($, Mustache, ticketStore, popup, $list),
-        form = tt.form($form, list);
+        form = tt.form($form, list, ticketStore);
 
     form.init();
     list.init();

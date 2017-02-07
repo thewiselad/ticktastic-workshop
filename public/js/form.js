@@ -1,6 +1,6 @@
 var tt = tt || {};
 
-tt.form = function($form, list) {
+tt.form = function($form, list, ticketStore) {
 
     function getInputs() {
         return $form.find('input:not([type="submit"]), select, textarea');
@@ -14,22 +14,16 @@ tt.form = function($form, list) {
 
     function storeFormTicket(e) {
         var $inputs,
-            values = {},
-            tickets = window.localStorage.getItem('tickets');
+            ticket = {};
 
         e.preventDefault();
-        tickets = JSON.parse(tickets);
-        if (!(tickets instanceof Array)) {
-            tickets = [];
-        }
-
         getInputs().each(function(key, el) {
-            values[el.name] = el.value;
+            ticket[el.name] = el.value;
         });
-        values.date = (new Date()).toJSON();
 
-        tickets.push(values);
-        window.localStorage.setItem('tickets', JSON.stringify(tickets));
+        ticket.date = new Date();
+
+        ticketStore.add(ticket);
 
         list.refresh();
         clearForm();
