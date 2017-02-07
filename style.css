@@ -28,6 +28,9 @@ html {
 .col-md-8 {
     width: 66.666666667%;
 }
+.col-md-6 {
+    width: 50%;
+}
 .col-md-4 {
     width: 33.333333333%;
 }
@@ -110,4 +113,52 @@ html {
 }
 .ticket-list__user {
     font-style: italic;
+}
+
+.ticket-details {
+    position: fixed;
+    top: 1em;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    box-shadow: 0 0 5px rgba(100, 100, 100, 0.6);
+    width: 600px;
+    max-width: 100%;
+    padding: 2em;
+}
+.ticket-details__title {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0 0 0.3em;
+}
+.ticket-details__priority {
+    width: 1em;
+    height: 1em;
+    background: grey;
+    display: inline-block;
+    border-radius: 0.5em;
+    margin-right: 0.2em;
+    overflow: hidden;
+    text-indent: 1em;
+
+    transform: translateY(0.1em);
+}
+
+.ticket-details__priority--annoyance { background: limegreen; }
+.ticket-details__priority--trivial { background: lightgreen; }
+.ticket-details__priority--dont-worry { background: lightblue; }
+.ticket-details__priority--overblown { background: pink; }
+.ticket-details__priority--potential-issue { background: red; }
+
+.ticket-details__user,
+.ticket-details__department,
+.ticket-details__time {
+    margin: 0;
+    font-size: 0.8em;
+}
+.ticket-details__contact {
+    text-align: right;
+    font-size: 0.8em;
+    display: block;
 }
