@@ -43,7 +43,7 @@ tt.form = function($form, list) {
 };
 
 tt.list = function($, Mustache, $list) {
-    var itemTemplate = '<li class="ticket-list__item"><h4 class="ticket-list__title">{{ details }}</h4> <span class="ticket-list__user">{{ name }}</span> <time datetime="{{ date }}"></time></li>';
+    var itemTemplate = '<li class="ticket-list__item"><h4 class="ticket-list__title">{{ summary }}</h4> <span class="ticket-list__user">{{ name }}</span> <time datetime="{{ date }}"></time></li>';
 
     function getTickets() {
         var existingTickets = window.localStorage.getItem('tickets');
@@ -58,9 +58,21 @@ tt.list = function($, Mustache, $list) {
         return existingTickets;
     }
 
+    function summarise(str) {
+        var cutoff = 35;
+        if (str.indexOf('\n') !== -1) {
+            cutoff = Math.min(cutoff, str.indexOf('\n'));
+        }
+        if (str.length <= cutoff) {
+            return str;
+        }
+        return str.substr(0, cutoff) + '…';
+    }
+
     function drawTickets(tickets) {
         var listItems;
         listItems = tickets.map(function(ticketDetails) {
+            ticketDetails.summary = summarise(ticketDetails.details);
             return Mustache.render(itemTemplate, ticketDetails);
         });
 
