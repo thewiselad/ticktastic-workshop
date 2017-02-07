@@ -161,6 +161,17 @@ As tickets are completed, they should be removed.
   * Add some controls
   * Make those controls work
 
+
+## Commit 11 - Refactoring
+
+Even though we've got good, well planned, working code your code can almost always be improved. As apps grow, the complexity creeps up and complexity is the project-killer. It's worth taking a moment every now and then to look at the code more holistically, and see if it can be improved.
+
+  * File structure.
+  * Relative vs absolute assets
+  * JS structure
+  * JS delivery.
+
+
 ## Footnotes
 
 <sup name="f1" id="f1">1</sup> Not technically required by the html spec, as the others are, but very important in the same way.
