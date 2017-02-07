@@ -43,7 +43,12 @@ tt.form = function($form, list) {
 };
 
 tt.list = function($, Mustache, popup, $list) {
-    var itemTemplate = '<li class="ticket-list__item"><h4 class="ticket-list__title">{{ summary }}</h4> <span class="ticket-list__user">{{ name }}</span> <time datetime="{{ date }}"></time></li>';
+    var itemTemplate = '<li class="ticket-list__item"><h4 class="ticket-list__title" data-index="{{ index }}">{{ summary }}</h4> <span class="ticket-list__user">{{ name }}</span> <time datetime="{{ date }}"></time></li>';
+
+    function findTicket(index) {
+        var tickets = getTickets();
+        return tickets[index];
+    }
 
     function getTickets() {
         var existingTickets = window.localStorage.getItem('tickets');
@@ -69,17 +74,23 @@ tt.list = function($, Mustache, popup, $list) {
         return str.substr(0, cutoff) + '…';
     }
 
+    function itemCicked(e) {
+        var index = $(this).data('index'),
+            ticket = findTicket(index);
+
+        e.preventDefault();
+        popup.show(ticket);
+    }
+
     function addHandlers() {
-        $list.find('.ticket-list__title').click(function(e) {
-            e.preventDefault();
-            popup.show();
-        });
+        $list.find('.ticket-list__title').click(itemCicked);
     }
 
     function drawTickets(tickets) {
         var listItems;
-        listItems = tickets.map(function(ticketDetails) {
+        listItems = tickets.map(function(ticketDetails, index) {
             ticketDetails.summary = summarise(ticketDetails.details);
+            ticketDetails.index = index;
             return Mustache.render(itemTemplate, ticketDetails);
         });
 
