@@ -124,6 +124,15 @@ In which we return information back to the DOM and briefly discuss the prinicple
     * Then just use a template library. (Also discuss whitespace etc.)
 
 
+## Commit 7 - Letting the user know
+
+We're rendering HTML / CSS now and reading and writing from the DOM into JS, but we're not doing it very well. If you were a user of our app you'd be doing a lot of refreshing, and did I didn't I? with regards button presses etc. So, let's start handling the _user_ as well as the data.
+
+  * Display results on submit
+  * Clear form on submit
+  * What about data quality / attacks / corruption?
+
+
 ## Footnotes
 
 <sup name="f1" id="f1">1</sup> Not technically required by the html spec, as the others are, but very important in the same way.

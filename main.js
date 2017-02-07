@@ -1,6 +1,16 @@
 var tt = {};
 
-tt.form = function($form) {
+tt.form = function($form, list) {
+
+    function getInputs() {
+        return $form.find('input:not([type="submit"]), select, textarea');
+    }
+
+    function clearForm() {
+        getInputs().each(function(key, el) {
+            el.value = '';
+        });
+    }
 
     function storeFormTicket(e) {
         var $inputs,
@@ -13,14 +23,16 @@ tt.form = function($form) {
             tickets = [];
         }
 
-        $values = $form.find('input:not([type="submit"]), select, textarea');
-        $values.each(function(key, el) {
+        getInputs().each(function(key, el) {
             values[el.name] = el.value;
         });
         values.date = (new Date()).toJSON();
 
         tickets.push(values);
         window.localStorage.setItem('tickets', JSON.stringify(tickets));
+
+        list.refresh();
+        clearForm();
     }
 
     return {
@@ -33,10 +45,8 @@ tt.form = function($form) {
 tt.list = function($, Mustache, $list) {
     var itemTemplate = '<li class="ticket-list__item"><h4 class="ticket-list__title">{{ details }}</h4> <span class="ticket-list__user">{{ name }}</span> <time datetime="{{ date }}"></time></li>';
 
-    function init() {
-        var existingTickets = window.localStorage.getItem('tickets'),
-            listItems;
-
+    function getTickets() {
+        var existingTickets = window.localStorage.getItem('tickets');
         existingTickets = JSON.parse(existingTickets);
         if (!(existingTickets instanceof Array)) {
             existingTickets = [];
@@ -44,15 +54,31 @@ tt.list = function($, Mustache, $list) {
         if (existingTickets.length === 0) {
             existingTickets.push({details: "No tickets found", name:"", date:""});
         }
-        listItems = existingTickets.map(function(ticketDetails) {
+
+        return existingTickets;
+    }
+
+    function drawTickets(tickets) {
+        var listItems;
+        listItems = tickets.map(function(ticketDetails) {
             return Mustache.render(itemTemplate, ticketDetails);
         });
 
         $list.html($(listItems.join('')));
     }
 
+    function init() {
+        refresh();
+    }
+
+    function refresh() {
+        var existingTickets = getTickets();
+        drawTickets(existingTickets);
+    }
+
     return {
-        init: init
+        init: init,
+        refresh: refresh
     };
 };
 
@@ -60,8 +86,8 @@ tt.list = function($, Mustache, $list) {
 
     var $form = $('#ticket-form'),
         $list = $('#ticket-list'),
-        form = tt.form($form),
-        list = tt.list($, Mustache, $list);
+        list = tt.list($, Mustache, $list),
+        form = tt.form($form, list);
 
     form.init();
     list.init();
