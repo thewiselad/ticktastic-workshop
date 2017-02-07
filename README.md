@@ -144,6 +144,16 @@ Currently our app shovels all the data in the sidebar, what happens when a ticke
     * display a popover on click (Build and style the popup first, then do the JS)
     * rebuild the popover to display the correct ticket correctly
 
+
+## Commit 9 - responsive design
+
+Need to make a few tweaks to make this design work responsively.
+
+  * Break down the grid
+  * Adjust the popover.
+  * Discuss "out-there" designs, (fixed heights etc) in terms of document flow and why our design was so easy to make respnosive.
+
+
 ## Footnotes
 
 <sup name="f1" id="f1">1</sup> Not technically required by the html spec, as the others are, but very important in the same way.

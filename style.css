@@ -10,6 +10,7 @@ html {
 }
 
 .container {
+    padding: 0 1em;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -179,4 +180,27 @@ html {
 }
 .ticket-details__dismiss:hover {
     background: #eee;
+}
+
+
+@media screen and (max-width: 800px) {
+    .row {
+        margin: 0;
+    }
+
+    [class^="col-md-"],
+    [class*=" col-md-"] {
+        float: none;
+        width: auto;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .existing-tickets {
+        padding: 2em;
+    }
+    .ticket-details {
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
 }
