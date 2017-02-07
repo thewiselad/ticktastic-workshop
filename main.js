@@ -133,15 +133,19 @@ tt.popup = function(Mustache, $popup) {
                     '</div>',
                 '</div>',
             '</div>',
-            '<div class="ticket-details__content">{{ details }}</div>'].join('');
+            '<div class="ticket-details__content"><p>{{ details }}</p></div>'].join('');
 
     function rebuildPopup(details) {
-        var htmlStr;
-        details.telCallable = 'TODO - make callable number';
-        details.formattedDate = 'TODO - format date';
-        details.details = "TODO - insert paragraph breaks";
+        var htmlStr, escapedDetails;
+
+        details.telCallable = details.telephone.replace(/[^\d]/, '');
+        details.formattedDate = (new Date(details.date)).toLocaleString();
         htmlStr = Mustache.render(template, details);
         $details.html(htmlStr);
+
+        escapedDetails = $details.find('.ticket-details__content').html();
+        escapedDetails = escapedDetails.replace(/\n/g, '</p><p>');
+        $details.find('.ticket-details__content').html(escapedDetails);
     }
 
     function hide(e) {

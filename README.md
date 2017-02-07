@@ -133,6 +133,17 @@ We're rendering HTML / CSS now and reading and writing from the DOM into JS, but
   * What about data quality / attacks / corruption?
 
 
+## Commit 8 - Adding a feature
+
+Currently our app shovels all the data in the sidebar, what happens when a ticket is too lengthy? We need to plan and build a solution to the long-ticket problem.
+
+  * Demonstrate the 'bug'
+  * Discuss the bug
+  * Fixes:
+    * Display truncated description (measure a string in the console for truncation length.)
+    * display a popover on click (Build and style the popup first, then do the JS)
+    * rebuild the popover to display the correct ticket correctly
+
 ## Footnotes
 
 <sup name="f1" id="f1">1</sup> Not technically required by the html spec, as the others are, but very important in the same way.
