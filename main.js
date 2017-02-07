@@ -42,7 +42,7 @@ tt.form = function($form, list) {
     };
 };
 
-tt.list = function($, Mustache, $list) {
+tt.list = function($, Mustache, popup, $list) {
     var itemTemplate = '<li class="ticket-list__item"><h4 class="ticket-list__title">{{ summary }}</h4> <span class="ticket-list__user">{{ name }}</span> <time datetime="{{ date }}"></time></li>';
 
     function getTickets() {
@@ -69,6 +69,13 @@ tt.list = function($, Mustache, $list) {
         return str.substr(0, cutoff) + '…';
     }
 
+    function addHandlers() {
+        $list.find('.ticket-list__title').click(function(e) {
+            e.preventDefault();
+            popup.show();
+        });
+    }
+
     function drawTickets(tickets) {
         var listItems;
         listItems = tickets.map(function(ticketDetails) {
@@ -86,6 +93,7 @@ tt.list = function($, Mustache, $list) {
     function refresh() {
         var existingTickets = getTickets();
         drawTickets(existingTickets);
+        addHandlers();
     }
 
     return {
@@ -94,7 +102,36 @@ tt.list = function($, Mustache, $list) {
     };
 };
 
-tt.ticket = function($popup) {
+tt.popup = function(Mustache, $popup) {
+
+    var $details,
+        template = [
+            '<h4 class="ticket-details__title">',
+                '<span class="ticket-details__priority ticket-details__priority--{{ priority }}">Priority: {{ priority }}</span>',
+                '{{ summary }}',
+            '</h4>',
+            '<div class="ticket-details__meta">',
+                '<div class="row clearfix">',
+                    '<div class="col-md-6">',
+                        '<h5 class="ticket-details__user">{{ name }} ({{ department }})</h5>',
+                        '<time class="ticket-details__time" datetime="{{ date }}">{{ formattedDate }}</time>',
+                    '</div>',
+                    '<div class="col-md-6">',
+                        '<a href="mailto:{{ email }}" class="ticket-details__contact">{{ email }}</a>',
+                        '<a href="tel:{{ telCallable }}" class="ticket-details__contact">{{ telephone }}</a>',
+                    '</div>',
+                '</div>',
+            '</div>',
+            '<div class="ticket-details__content">{{ details }}</div>'].join('');
+
+    function rebuildPopup(details) {
+        var htmlStr;
+        details.telCallable = 'TODO - make callable number';
+        details.formattedDate = 'TODO - format date';
+        details.details = "TODO - insert paragraph breaks";
+        htmlStr = Mustache.render(template, details);
+        $details.html(htmlStr);
+    }
 
     function hide(e) {
         if (e) {
@@ -107,7 +144,15 @@ tt.ticket = function($popup) {
         $popup.find('.ticket-details__dismiss').click(hide);
     }
 
+    function show(details) {
+        if (details) {
+            rebuildPopup(details);
+        }
+        $popup.show();
+    }
+
     function init() {
+        $details = $popup.find('.ticket-details__details');
         addClickHandler();
         hide();
     }
@@ -123,12 +168,12 @@ tt.ticket = function($popup) {
     var $form = $('#ticket-form'),
         $list = $('#ticket-list'),
         $ticket = $('#ticket-details'),
-        list = tt.list($, Mustache, $list),
-        ticket = tt.ticket($ticket),
+        popup = tt.popup(Mustache, $ticket),
+        list = tt.list($, Mustache, popup, $list),
         form = tt.form($form, list);
 
     form.init();
     list.init();
-    ticket.init();
+    popup.init();
 
 })(jQuery, Mustache, tt);

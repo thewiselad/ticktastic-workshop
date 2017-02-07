@@ -110,6 +110,7 @@ html {
 .ticket-list__title {
     margin: 0;
     text-decoration: underline;
+    cursor: pointer;
 }
 .ticket-list__user {
     font-style: italic;
