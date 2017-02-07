@@ -94,14 +94,41 @@ tt.list = function($, Mustache, $list) {
     };
 };
 
+tt.ticket = function($popup) {
+
+    function hide(e) {
+        if (e) {
+            e.preventDefault();
+        }
+        $popup.hide();
+    }
+
+    function addClickHandler() {
+        $popup.find('.ticket-details__dismiss').click(hide);
+    }
+
+    function init() {
+        addClickHandler();
+        hide();
+    }
+
+    return {
+        init: init,
+        show: show
+    }
+};
+
 (function($, Mustache, tt) {
 
     var $form = $('#ticket-form'),
         $list = $('#ticket-list'),
+        $ticket = $('#ticket-details'),
         list = tt.list($, Mustache, $list),
+        ticket = tt.ticket($ticket),
         form = tt.form($form, list);
 
     form.init();
     list.init();
+    ticket.init();
 
 })(jQuery, Mustache, tt);

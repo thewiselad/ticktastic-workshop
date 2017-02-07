@@ -162,3 +162,19 @@ html {
     font-size: 0.8em;
     display: block;
 }
+.ticket-details__dismiss {
+    position: absolute;
+    top: 0.2em;
+    right: 0.2em;
+    text-decoration: none;
+    border-radius: 1em;
+    font-size: 1.4em;
+    width: 1.5em;
+    height: 1.5em;
+    display: block;
+    text-align: center;
+    line-height: 1.5;
+}
+.ticket-details__dismiss:hover {
+    background: #eee;
+}
