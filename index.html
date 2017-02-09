@@ -1,76 +1,91 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta charset="UTF8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title> RemedyForce </title>
+		<meta charset="UTF8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> RemedyForce </title>
+
+		<link rel="stylesheet" href="reset.css" type="text/css">
+		<link rel="stylesheet" href="style.css" type="text/css">
 	</head>
 	<body>
 	
 		<header class="page-header">
-		<h1> RemedyForce </h1>
+			<div class="container">
+				<h1> RemedyForce </h1>
+			</div>
 		</header>
+		<div class="container">
+			<div class="row">
+				<section class="col-md-8">
 
-	<form action="" method="post">
+					<form action="" method="post" class="main-form">
+						<h2 class="main-form__title">Submit a new ticket</h2>
+
+						<div class="form-group">
+							<label class="control-label" for="name">Your Name</label>
+							<input class="form-control" type="text" name="name" id="name"required>
+						</div>
 		
-		<h1>Submit a new ticket</h1>
+						<div class="form-group">
+							<label class="control-label" for="department">Department</label>
+							<select class="form-control" name="department" id="department">
+								<option value="">Please Choose a department</option>
+								<option value="">Accounts</option>
+								<option value="">History</option>
+								<option value="">HR</option>
+								<option value="">Mafia</option>
+							</select>
+						</div>
 
-		<div class="form-group">
-		<label for="name">Your Name</label>
-		<input type="text" name="name" id="name"required>
-		<//div>
-		
-		<div class="form-group">
-		<label for="department">Department</label>
-		<select name="department" id="department">
-			<option value="">Please Choose a department</option>
-			<option value="">Accounts</option>
-			<option value="">History</option>
-			<option value="">HR</option>
-			<option value="">Mafia</option>
+						<div class="form-group">
+							<label class="control-label" for="email">Your Email</label>
+							<input class="form-control" type="email" name="email" id="email" required>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label" for="Your Phone Number">Phone Number</label>
+							<input class="form-control" type="text" name="number"required>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label" for="Ticket Priority">Ticket Priority</label>
+							<select class="form-control" name="Ticket Priority" id="Ticket Priority"required>
+								<option value="">Low</option>
+								<option value="">Medium</option>
+								<option value="">High</option>
+								<option value="">Higher Than High</option>
+								<option value="">Im dying</option>
+
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label" for="details">Details of your issue</label>
+							<textarea class="form-control" name="details" id="details"></textarea>
+						</div>
+
+						<div class="form-group">
+							<input class="btn btn--block" type="submit" value="Report issue">
+						</div>
+
+					</form>
+				</section>
+				<section class="col-md-4 existing-tickets">
+
+						<h2 class="existing-tickets__title"> Tickets </h2>
+						<ul class="ticket-list">
+							<li class="ticket-list__item">
+								<h4 class="ticket-list__title"> Liquez</h4>
+								<span class="ticket-list__user"> HELP !?! </span>
+							</li>
+							<li class="ticket-list__item"><h4 class="ticket-list__title"> Network Issues</h4><span class="ticket-list__user">- M-Skeng</span> </li>
+							<li class="ticket-list__item"><h4 class="ticket-list__title"> Go die</h4><span class="ticket-list__user">- LD </span>  </li>
+							<li class="ticket-list__item"><h4 class="ticket-list__title"> Destroyed</h4><span class="ticket-list__user">- Dimzy</span>  </li>
+							<li class="ticket-list__item"><h4 class="ticket-list__title"> Battered</h4><span class="ticket-list__user">- Monkey</span>  </li>
+						</ul>
+				</section>
+			</div>
 		</div>
-
-		</select>
-
-		<div class="form-group">
-		<label for="email">Your Email</label>
-		<input type="email" name="email" id="email" required>
-		</div>
-
-		<div class="form-group">
-		<label for="Your Phone Number">Phone Number</label>
-		<input type="text" name="number"required>
-		</div>
-
-		<div class="form-group">
-		<label for="Ticket Priority">Ticket Priority</label>
-		<select name="Ticket Priority" id="Ticket Priority"required>
-			<option value="">Low</option>
-			<option value="">Medium</option>
-			<option value="">High</option>
-			<option value="">Higher Than High</option>
-			<option value="">Im dying</option>
-
-		</select>
-		</div>
-
-		<div class="form-group">
-		<label for="details">Details of your issue</label>
-		<textarea name="details" id="details"></textarea>
-		</div>
-
-		<div class="form-group">
-			<input type="submit" value="Report issue">
-		</div>
-
-	</form>
-		<h2> Tickets </h2>
-		<ul class="ticket-list">
-			<li class="ticket-list__item"><strong> Liquez</strong> - HELP !?! </li>
-			<li class="ticket-list__item"><strong> M-Skeng</strong> - Network Issues </li>
-			<li class="ticket-list__item"><strong> LD </strong> - Go die </li>
-			<li class="ticket-list__item"><strong> Dimzy</strong> - Destroyed </li>
-			<li class="ticket-list__item"><strong> Monkey</strong> - Battered </li>
-
 	</body>
 </html>
